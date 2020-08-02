@@ -12,6 +12,9 @@ public:
     ~nodo_estudiante();
     void setsiguiente(nodo_estudiante* n);
     nodo_estudiante * getsiguiente();
+    string getnombre();
+    string getcarnet();
+    void imprimir();
 
 private:
     string nombre;
@@ -19,5 +22,7 @@ private:
     nodo_estudiante* siguiente;
 
 };
+
+
 
 #endif // NODO_ESTUDIANTE_H

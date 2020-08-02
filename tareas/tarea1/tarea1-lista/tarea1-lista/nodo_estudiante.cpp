@@ -8,13 +8,25 @@ nodo_estudiante::nodo_estudiante(string nombre, string carnet)
 }
 
 nodo_estudiante::~nodo_estudiante(){
-    count<<"Nodo borrado"<<endl;
+    cout<<"Nodo borrado"<<endl;
+}
+
+string nodo_estudiante::getnombre(){
+        return this->nombre;
+}
+
+string nodo_estudiante::getcarnet(){
+    return this->carnet;
 }
 
 nodo_estudiante* nodo_estudiante::getsiguiente(){
     return this->siguiente;
 }
 
-void nodo_estudiante::siguiente(nodo_estudiante *n){
+void nodo_estudiante::setsiguiente(nodo_estudiante *n){
     this->siguiente=n;
+}
+
+void nodo_estudiante::imprimir(){
+    cout<<"Nombre: " << this->nombre << "\nCarnet: " << this->carnet << endl;
 }

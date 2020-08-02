@@ -50,8 +50,12 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../tarea1-lista/main.cpp 
-OBJECTS       = main.o
+SOURCES       = ../tarea1-lista/main.cpp \
+		../tarea1-lista/nodo_estudiante.cpp \
+		../tarea1-lista/lista.cpp 
+OBJECTS       = main.o \
+		nodo_estudiante.o \
+		lista.o
 DIST          = /home/carlos/Qt5.9.1/5.9.1/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/carlos/Qt5.9.1/5.9.1/gcc_64/mkspecs/common/unix.conf \
 		/home/carlos/Qt5.9.1/5.9.1/gcc_64/mkspecs/common/linux.conf \
@@ -211,6 +215,7 @@ DIST          = /home/carlos/Qt5.9.1/5.9.1/gcc_64/mkspecs/features/spec_pre.prf 
 		/home/carlos/Qt5.9.1/5.9.1/gcc_64/mkspecs/features/qt_config.prf \
 		/home/carlos/Qt5.9.1/5.9.1/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/home/carlos/Qt5.9.1/5.9.1/gcc_64/mkspecs/features/spec_post.prf \
+		../tarea1-lista/.qmake.stash \
 		/home/carlos/Qt5.9.1/5.9.1/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/home/carlos/Qt5.9.1/5.9.1/gcc_64/mkspecs/features/toolchain.prf \
 		/home/carlos/Qt5.9.1/5.9.1/gcc_64/mkspecs/features/default_pre.prf \
@@ -224,7 +229,10 @@ DIST          = /home/carlos/Qt5.9.1/5.9.1/gcc_64/mkspecs/features/spec_pre.prf 
 		/home/carlos/Qt5.9.1/5.9.1/gcc_64/mkspecs/features/exceptions.prf \
 		/home/carlos/Qt5.9.1/5.9.1/gcc_64/mkspecs/features/yacc.prf \
 		/home/carlos/Qt5.9.1/5.9.1/gcc_64/mkspecs/features/lex.prf \
-		../tarea1-lista/tarea1-lista.pro  ../tarea1-lista/main.cpp
+		../tarea1-lista/tarea1-lista.pro nodo_estudiante.h \
+		lista.h ../tarea1-lista/main.cpp \
+		../tarea1-lista/nodo_estudiante.cpp \
+		../tarea1-lista/lista.cpp
 QMAKE_TARGET  = tarea1-lista
 DESTDIR       = 
 TARGET        = tarea1-lista
@@ -395,6 +403,7 @@ Makefile: ../tarea1-lista/tarea1-lista.pro /home/carlos/Qt5.9.1/5.9.1/gcc_64/mks
 		/home/carlos/Qt5.9.1/5.9.1/gcc_64/mkspecs/features/qt_config.prf \
 		/home/carlos/Qt5.9.1/5.9.1/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/home/carlos/Qt5.9.1/5.9.1/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/home/carlos/Qt5.9.1/5.9.1/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/home/carlos/Qt5.9.1/5.9.1/gcc_64/mkspecs/features/toolchain.prf \
 		/home/carlos/Qt5.9.1/5.9.1/gcc_64/mkspecs/features/default_pre.prf \
@@ -569,6 +578,7 @@ Makefile: ../tarea1-lista/tarea1-lista.pro /home/carlos/Qt5.9.1/5.9.1/gcc_64/mks
 /home/carlos/Qt5.9.1/5.9.1/gcc_64/mkspecs/features/qt_config.prf:
 /home/carlos/Qt5.9.1/5.9.1/gcc_64/mkspecs/linux-g++/qmake.conf:
 /home/carlos/Qt5.9.1/5.9.1/gcc_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /home/carlos/Qt5.9.1/5.9.1/gcc_64/mkspecs/features/exclusive_builds.prf:
 /home/carlos/Qt5.9.1/5.9.1/gcc_64/mkspecs/features/toolchain.prf:
 /home/carlos/Qt5.9.1/5.9.1/gcc_64/mkspecs/features/default_pre.prf:
@@ -626,8 +636,16 @@ compiler_clean:
 
 ####### Compile
 
-main.o: ../tarea1-lista/main.cpp 
+main.o: ../tarea1-lista/main.cpp ../tarea1-lista/lista.h \
+		../tarea1-lista/nodo_estudiante.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../tarea1-lista/main.cpp
+
+nodo_estudiante.o: ../tarea1-lista/nodo_estudiante.cpp ../tarea1-lista/nodo_estudiante.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o nodo_estudiante.o ../tarea1-lista/nodo_estudiante.cpp
+
+lista.o: ../tarea1-lista/lista.cpp ../tarea1-lista/lista.h \
+		../tarea1-lista/nodo_estudiante.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o lista.o ../tarea1-lista/lista.cpp
 
 ####### Install
 

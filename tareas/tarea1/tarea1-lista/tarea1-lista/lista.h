@@ -11,8 +11,10 @@ public:
     ~lista();
     void add(nodo_estudiante* nuevo);
     int get_size();
-    void delete_estudiante (int i);
-    nodo_estudiante* get_estudiante();
+    void delete_estudiante (string  i);
+    nodo_estudiante* get_carnet(string b);
+    void buscarestudiante(string b);
+    void imprimir();
 private:
     nodo_estudiante* head;
     nodo_estudiante* tail;
